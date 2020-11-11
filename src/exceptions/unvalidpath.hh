@@ -5,14 +5,15 @@ class UnvalidPath : public std::exception
 {
     public :
         UnvalidPath(std::string path)
-            : path_(path)
-        {}
-
-        const char* what()
         {
-            return std::string(path_ + " is not a valid path").c_str();
+            message_ = path + " is not a valid path.";
+        }
+
+        virtual const char* what() const noexcept
+        {
+            return message_.c_str();
         }
 
     private :
-        std::string path_;
+        std::string message_;
 };
