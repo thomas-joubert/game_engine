@@ -1,3 +1,4 @@
+#pragma once
 
 /* Base object, containing its coordinates */
 class Object
