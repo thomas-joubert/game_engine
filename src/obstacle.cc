@@ -1,3 +1,6 @@
+#include <SFML/Graphics/RenderStates.hpp>
+#include <SFML/Graphics/RenderTarget.hpp>
+
 #include "obstacle.hh"
 #include "exceptions/unvalidpath.hh"
 
@@ -18,4 +21,9 @@ Obstacle::Obstacle(int pos_x,
 sf::Sprite Obstacle::sprite_get(void)
 {
     return sprite_;
+}
+
+void Obstacle::draw(sf::RenderTarget& target, sf::RenderStates states) const
+{
+    target.draw(sprite_, states);
 }

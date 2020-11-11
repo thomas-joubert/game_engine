@@ -1,5 +1,6 @@
 #pragma once
 
+#include <SFML/Graphics/Drawable.hpp>
 #include <SFML/Graphics/Texture.hpp>
 #include <SFML/Graphics/Sprite.hpp>
 
@@ -9,7 +10,7 @@
 
 /* Represents an obstacle, unmovable object that has a particular sprite */
 
-class Obstacle : public Object
+class Obstacle : public Object, public sf::Drawable
 {
     public :
     Obstacle(int pos_x,
@@ -21,5 +22,6 @@ class Obstacle : public Object
     sf::Sprite sprite_get(void);
 
     private :
+        void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
         sf::Sprite sprite_;
 };
