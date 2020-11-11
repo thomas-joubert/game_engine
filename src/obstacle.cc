@@ -11,11 +11,10 @@ Obstacle::Obstacle(int pos_x,
             std::string path_to_texture)
     : Object(pos_x, pos_y, len_x, len_y)
 {
-    sf::Texture texture;
-    if (!texture.loadFromFile(path_to_texture))
+    if (!texture_.loadFromFile(path_to_texture))
         throw UnvalidPath(path_to_texture);
 
-    sprite_ = sf::Sprite(texture);
+    sprite_ = sf::Sprite(texture_);
 }
 
 sf::Sprite Obstacle::sprite_get(void)

@@ -23,5 +23,6 @@ class Obstacle : public Object, public sf::Drawable
 
     private :
         void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
+        sf::Texture texture_;
         sf::Sprite sprite_;
 };
