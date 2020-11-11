@@ -16,7 +16,7 @@ class Object
         int len_x_get(void);
         /// }
 
-    private :
+    protected :
         int pos_x_;
         int pos_y_;
         int len_x_;
