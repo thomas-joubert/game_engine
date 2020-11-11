@@ -12,7 +12,7 @@ int main(void)
     sf::RenderWindow renderWindow(sf::VideoMode(1000, 1000, sf::Style::Default), "Something");
     renderWindow.setVerticalSyncEnabled(true);
 
-    auto obstacle = Obstacle(0, 0, 100, 100, "/home/thomas/game_engine/tes1.jpg");
+    auto obstacle = Obstacle(0, 0, 100, 100, "/home/thomas/game_engine/test1.jpg");
 
     while (renderWindow.isOpen())
     {
