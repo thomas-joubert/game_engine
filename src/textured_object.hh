@@ -5,6 +5,7 @@
 #include <SFML/Graphics/Sprite.hpp>
 
 #include <string>
+#include <utility>
 
 #include "object.hh"
 
@@ -17,6 +18,10 @@ class TexturedObject : public Object, public sf::Drawable
             int pos_y,
             int len_x,
             int len_y,
+            std::string path_to_texture);
+
+    TexturedObject(std::pair<int, int> pos,
+            std::pair<int, int> len,
             std::string path_to_texture);
 
     // Getters
