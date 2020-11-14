@@ -19,8 +19,12 @@ class Obstacle : public Object, public sf::Drawable
             int len_y,
             std::string path_to_texture);
 
+    // Getters
+    /// {
     sf::Sprite sprite_get(void);
     sf::Texture texture_get(void);
+    std::string path_to_texture_get(void);
+    /// }
 
     private :
         void draw(sf::RenderTarget& target, sf::RenderStates states) const override;

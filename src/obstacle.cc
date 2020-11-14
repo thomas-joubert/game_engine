@@ -29,6 +29,11 @@ sf::Texture Obstacle::texture_get(void)
     return texture_;
 }
 
+std::string Obstacle::path_to_texture_get(void)
+{
+    return path_to_texture_;
+}
+
 void Obstacle::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
     target.draw(sprite_, states);
