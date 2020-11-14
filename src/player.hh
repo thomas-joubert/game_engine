@@ -4,11 +4,11 @@
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/Graphics/Texture.hpp>
 
-#include "object.hh"
+#include "textured_object.hh"
 
 /* Hold the basic information about the player, its position, sprite...*/
 
-class Player : public Object, public sf::Drawable
+class Player : public TexturedObject
 {
     public :
         Player(int pos_x,
@@ -16,11 +16,4 @@ class Player : public Object, public sf::Drawable
                 int len_x,
                 int len_y,
                 std::string path_to_texture);
-
-        sf::Sprite sprite_get(void);
-        sf::Texture texture_get(void);
-
-    private :
-        sf::Sprite sprite_;
-        sf::Texture texture_;
 };
