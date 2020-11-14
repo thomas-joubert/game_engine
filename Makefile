@@ -9,7 +9,7 @@ TESTLFLAGS=$(LDFLAGS) -lgtest
 
 MAINOBJ= src/main.o
 OBJS= src/object.o src/obstacle.o src/player.o src/textured_object.o
-TESTOBJS= $(OBJS) tests/obstacle/obstacle_tests.o tests/test_main.cc
+TESTOBJS= $(OBJS) tests/object/object_tests.o tests/test_main.o
 
 BIN=engine
 BINTEST=check
@@ -22,6 +22,6 @@ clean :
 
 check : $(TESTOBJS)
 	$(CXX) $(TESTLFLAGS) $(TESTOBJS) -o $(BINTEST)
-	./$(BINTEST) --gtest_color=yes
+	./check --gtest_color=yes
 
-.PHONY: clean
+.PHONY: clean check
