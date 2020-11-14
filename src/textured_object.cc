@@ -6,12 +6,24 @@
 #include "textured_object.hh"
 
 TexturedObject::TexturedObject(int pos_x,
-            int pos_y,
-            int len_x,
-            int len_y,
-            std::string path_to_texture)
+        int pos_y,
+        int len_x,
+        int len_y,
+        std::string path_to_texture)
     : Object(pos_x, pos_y, len_x, len_y),
     path_to_texture_(path_to_texture)
+{
+    if (!texture_.loadFromFile(path_to_texture))
+        throw UnvalidPath(path_to_texture);
+
+    sprite_ = sf::Sprite(texture_);
+}
+
+
+TexturedObject::TexturedObject(std::pair<int, int> pos,
+        std::pair<int, int> len,
+        std::string path_to_texture)
+    : Object(pos, len)
 {
     if (!texture_.loadFromFile(path_to_texture))
         throw UnvalidPath(path_to_texture);
