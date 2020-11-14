@@ -1,4 +1,5 @@
 #include <string>
+#include <utility>
 
 #include <SFML/Graphics/Drawable.hpp>
 #include <SFML/Graphics/Sprite.hpp>
@@ -15,5 +16,9 @@ class Player : public TexturedObject
                 int pos_y,
                 int len_x,
                 int len_y,
+                std::string path_to_texture);
+
+        Player(std::pair<int, int> pos,
+                std::pair<int, int> len,
                 std::string path_to_texture);
 };

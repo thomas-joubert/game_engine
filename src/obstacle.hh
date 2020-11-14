@@ -13,9 +13,13 @@
 class Obstacle : public TexturedObject
 {
     public :
-    Obstacle(int pos_x,
-            int pos_y,
-            int len_x,
-            int len_y,
-            std::string path_to_texture);
+        Obstacle(int pos_x,
+                int pos_y,
+                int len_x,
+                int len_y,
+                std::string path_to_texture);
+
+        Obstacle(std::pair<int, int> pos,
+                std::pair<int, int> len,
+                std::string path_to_texture);
 };

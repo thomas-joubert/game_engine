@@ -13,3 +13,9 @@ Obstacle::Obstacle(int pos_x,
             std::string path_to_texture)
     : TexturedObject(pos_x, pos_y, len_x, len_y,path_to_texture)
 {}
+
+Obstacle::Obstacle(std::pair<int, int> pos,
+        std::pair<int, int> len,
+        std::string path_to_texture)
+    : TexturedObject(pos, len, path_to_texture)
+{}
