@@ -11,16 +11,16 @@ OBJS= src/object.o src/obstacle.o src/player.o
 TESTOBJS= $(OBJS) tests/obstacle/obstacle_tests.o tests/test_main.cc
 
 BIN=engine
+BINTEST=check
 
 all : $(OBJS) $(MAINOBJ)
 	$(CXX) $(LDFLAGS) $(OBJS) $(MAINOBJ) -o $(BIN)
 
 clean :
-	$(RM) $(OBJS) $(BIN)
+	$(RM) $(OBJS) $(BIN) $(BINTEST) $(TESTOBJS) $(MAINOBJ)
 
 check : $(TESTOBJS)
-	$(CXX) $(TESTLFLAGS) $(TESTOBJS) -o check
-	./check --gtest_color=yes
-	rm check
+	$(CXX) $(TESTLFLAGS) $(TESTOBJS) -o $(BINTEST)
+	./$(BINTEST) --gtest_color=yes
 
 .PHONY: clean
