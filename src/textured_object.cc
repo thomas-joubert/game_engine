@@ -31,6 +31,7 @@ TexturedObject::TexturedObject(sf::Vector2f pos,
         throw UnvalidPath(path_to_texture);
 
     sprite_ = sf::Sprite(texture_);
+    sprite_.setPosition(pos_);
 }
 
 sf::Sprite TexturedObject::sprite_get(void)
