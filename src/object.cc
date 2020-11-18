@@ -1,54 +1,56 @@
+#include <SFML/System/Vector2.hpp>
+#include <SFML/System/Vector3.hpp>
 #include <exception>
 #include <stdexcept>
 
 #include "object.hh"
 
-Object::Object(int pos_x,
-        int pos_y,
-        int len_x,
-        int len_y)
+Object::Object(float pos_x,
+        float pos_y,
+        float len_x,
+        float len_y)
 {
     if (pos_x < 0 || pos_y < 0 || len_x < 0 || len_y < 0)
         throw std::invalid_argument("An object cannot be initialize with negative values");
-    pos_ = std::make_pair(pos_x, pos_y);
-    len_ = std::make_pair(len_x, len_y);
+    pos_ = sf::Vector2f(pos_x, pos_y);
+    len_ = sf::Vector2f(len_x, len_y);
 }
 
-Object::Object(std::pair<int, int> pos,
-        std::pair<int, int> len)
+Object::Object(sf::Vector2f pos,
+        sf::Vector2f len)
     : pos_(pos),
     len_(len)
 {
-    if (pos.first < 0 || pos.second < 0 || len.first < 0 || len.second < 0)
+    if (pos.x < 0 || pos.x < 0 || len.x < 0 || len.y < 0)
         throw std::invalid_argument("An object cannot be initialize with negative values");
 }
 
-int Object::pos_x_get(void)
+float Object::pos_x_get(void)
 {
-    return pos_.first;
+    return pos_.x;
 }
 
-int Object::pos_y_get(void)
+float Object::pos_y_get(void)
 {
-    return pos_.second;
+    return pos_.y;
 }
 
-int Object::len_x_get(void)
+float Object::len_x_get(void)
 {
-    return len_.first;
+    return len_.x;
 }
 
-int Object::len_y_get(void)
+float Object::len_y_get(void)
 {
-    return len_.second;
+    return len_.y;
 }
 
-std::pair<int, int> Object::pos_get(void)
+sf::Vector2f Object::pos_get(void)
 {
     return pos_;
 }
 
-std::pair<int, int> Object::len_get(void)
+sf::Vector2f Object::len_get(void)
 {
     return len_;
 }

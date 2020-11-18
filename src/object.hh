@@ -1,34 +1,35 @@
 #pragma once
 
 #include <utility>
+#include <SFML/Graphics.hpp>
 
 /*
-** Base object, containing its coordinates, using int to be able to check if 
+** Base object, containing its coordinates, using float to be able to check if 
 ** the value are negatives or not.
 */
 
 class Object
 {
     public :
-        Object(int pos_x,
-                int pos_y,
-                int len_x,
-                int len_y);
+        Object(float pos_x,
+                float pos_y,
+                float len_x,
+                float len_y);
 
-        Object(std::pair<int, int> pos, std::pair<int, int> len);
+        Object(sf::Vector2f pos, sf::Vector2f len);
 
         // Getters
         /// {
-        std::pair<int, int> pos_get(void);
-        std::pair<int, int> len_get(void);
+        sf::Vector2f pos_get(void);
+        sf::Vector2f len_get(void);
 
-        int pos_x_get(void);
-        int pos_y_get(void);
-        int len_y_get(void);
-        int len_x_get(void);
+        float pos_x_get(void);
+        float pos_y_get(void);
+        float len_y_get(void);
+        float len_x_get(void);
         /// }
 
     protected :
-        std::pair<int, int> pos_;
-        std::pair<int, int> len_;
+        sf::Vector2f pos_;
+        sf::Vector2f len_;
 };

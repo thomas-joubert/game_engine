@@ -14,14 +14,14 @@
 class TexturedObject : public Object, public sf::Drawable
 {
     public :
-        TexturedObject(int pos_x,
-                int pos_y,
-                int len_x,
-                int len_y,
+        TexturedObject(float pos_x,
+                float pos_y,
+                float len_x,
+                float len_y,
                 std::string path_to_texture);
 
-        TexturedObject(std::pair<int, int> pos,
-                std::pair<int, int> len,
+        TexturedObject(sf::Vector2f pos,
+                sf::Vector2f len,
                 std::string path_to_texture);
 
         // Getters

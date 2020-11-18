@@ -1,14 +1,15 @@
 #include <SFML/Graphics/RenderStates.hpp>
 #include <SFML/Graphics/RenderTarget.hpp>
 #include <SFML/Graphics/Texture.hpp>
+#include <SFML/System/Vector2.hpp>
 
 #include "exceptions/unvalidpath.hh"
 #include "textured_object.hh"
 
-TexturedObject::TexturedObject(int pos_x,
-        int pos_y,
-        int len_x,
-        int len_y,
+TexturedObject::TexturedObject(float pos_x,
+        float pos_y,
+        float len_x,
+        float len_y,
         std::string path_to_texture)
     : Object(pos_x, pos_y, len_x, len_y),
     path_to_texture_(path_to_texture)
@@ -17,11 +18,12 @@ TexturedObject::TexturedObject(int pos_x,
         throw UnvalidPath(path_to_texture);
 
     sprite_ = sf::Sprite(texture_);
+    sprite_.setPosition(pos_);
 }
 
 
-TexturedObject::TexturedObject(std::pair<int, int> pos,
-        std::pair<int, int> len,
+TexturedObject::TexturedObject(sf::Vector2f pos,
+        sf::Vector2f len,
         std::string path_to_texture)
     : Object(pos, len)
 {
