@@ -5,14 +5,20 @@
 #include <vector>
 #include <utility>
 
-class CtrObjectTesterBad : public testing::TestWithParam<int*>
+class CtrObjectTesterBadCoordinates : public testing::TestWithParam<int*>
 {};
 
-class CtrObjectTesterPairBad : public testing::TestWithParam<sf::Vector2f*>
+class CtrObjectTesterPairBadCoordinates : public testing::TestWithParam<sf::Vector2f*>
 {};
 
-class CtrObjectTesterGood : public testing::TestWithParam<int*>
+class CtrObjectTesterGoodCoordinates : public testing::TestWithParam<int*>
 {};
 
-class CtrObjectTesterPairGood : public testing::TestWithParam<sf::Vector2f*>
+class CtrObjectTesterPairGoodCoordinates : public testing::TestWithParam<sf::Vector2f*>
+{};
+
+class CtrObjectTesterBadLen : public testing::TestWithParam<int*>
+{};
+
+class CtrObjectTesterPairBadLen : public testing::TestWithParam<sf::Vector2f*>
 {};

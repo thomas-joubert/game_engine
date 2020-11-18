@@ -1,3 +1,4 @@
+#include <SFML/Graphics/Rect.hpp>
 #include <SFML/System/Vector2.hpp>
 #include <gtest/gtest.h>
 #include <stdexcept>
@@ -9,7 +10,7 @@
 #include "../../src/exceptions/unvalidpath.hh"
 
 /// {
-TEST_P(CtrObjectTesterBad, NegativeParameterIntConstructor)
+TEST_P(CtrObjectTesterBadCoordinates, NegativeParameterIntConstructor)
 {
     int *args = GetParam();
     ASSERT_THROW(Object(args[0], args[1], args[2], args[3]), std::invalid_argument);
@@ -21,7 +22,7 @@ int c[]{1, 2, -1, -1};
 int d[]{1, 2, 3, -1};
 int e[]{-1, 2, 3, 4};
 
-INSTANTIATE_TEST_SUITE_P(ObjectTests, CtrObjectTesterBad,
+INSTANTIATE_TEST_SUITE_P(ObjectTests, CtrObjectTesterBadCoordinates,
         ::testing::Values(
             a, b, c, d, e
         ));
@@ -29,9 +30,9 @@ INSTANTIATE_TEST_SUITE_P(ObjectTests, CtrObjectTesterBad,
 
 
 /// {
-TEST_P(CtrObjectTesterPairBad, NegativeParamaterPairConstructor)
+TEST_P(CtrObjectTesterPairBadCoordinates, NegativeParamaterPairConstructor)
 {
-    sf::Vector2f *args = CtrObjectTesterPairBad::GetParam();
+    sf::Vector2f *args = CtrObjectTesterPairBadCoordinates::GetParam();
     ASSERT_THROW(Object(args[0], args[1]), std::invalid_argument);
 }
 
@@ -41,16 +42,16 @@ sf::Vector2f pc[]{{1, 2}, {-1, -1}};
 sf::Vector2f pd[]{{1, 2}, {3, -1}};
 sf::Vector2f pe[]{{-1, 2}, {3, 4}};
 
-INSTANTIATE_TEST_SUITE_P(ObjectTests, CtrObjectTesterPairBad,
+INSTANTIATE_TEST_SUITE_P(ObjectTests, CtrObjectTesterPairBadCoordinates,
         ::testing::Values(
             pa, pb, pc, pd, pe
         ));
 /// }
 
 /// {
-TEST_P(CtrObjectTesterGood, validIntParameter)
+TEST_P(CtrObjectTesterGoodCoordinates, validIntParameter)
 {
-    int *args = CtrObjectTesterGood::GetParam();
+    int *args = CtrObjectTesterGoodCoordinates::GetParam();
     Object ob(args[0], args[1], args[2], args[3]);
 
     ASSERT_EQ(ob.pos_x_get(), args[0]);
@@ -66,16 +67,16 @@ int ga[]{1, 1, 1, 1};
 int gb[]{0, 1, 1, 1};
 int gc[]{1, 2, 1, 1};
 
-INSTANTIATE_TEST_SUITE_P(ObjectTests, CtrObjectTesterGood,
+INSTANTIATE_TEST_SUITE_P(ObjectTests, CtrObjectTesterGoodCoordinates,
         ::testing::Values(
             ga, gb, gc
      ));
 /// }
 
 /// {
-TEST_P(CtrObjectTesterPairGood, validPairParameter)
+TEST_P(CtrObjectTesterPairGoodCoordinates, validPairParameter)
 {
-    sf::Vector2f *args = CtrObjectTesterPairGood::GetParam();
+    sf::Vector2f *args = CtrObjectTesterPairGoodCoordinates::GetParam();
     Object ob(args[0], args[1]);
 
     ASSERT_EQ(ob.pos_x_get(), args[0].x);
@@ -91,8 +92,49 @@ sf::Vector2f gpa[]{{1, 1}, {1, 1}};
 sf::Vector2f gpb[]{{0, 1}, {1, 1}};
 sf::Vector2f gpc[]{{1, 2}, {1, 1}};
 
-INSTANTIATE_TEST_SUITE_P(ObjectTests, CtrObjectTesterPairGood,
+INSTANTIATE_TEST_SUITE_P(ObjectTests, CtrObjectTesterPairGoodCoordinates,
         ::testing::Values(
             gpa, gpb, gpc
         ));
 /// }
+
+TEST_P(CtrObjectTesterPairBadLen, BadLenPair)
+{
+    sf::Vector2f *args = GetParam();
+    ASSERT_THROW(Object(args[0], args[1]), std::invalid_argument);
+}
+
+sf::Vector2f bpla[]{{2, 2}, {-1, -1}};
+sf::Vector2f bplb[]{{2, 2}, {0, 0}};
+
+INSTANTIATE_TEST_SUITE_P(ObjectTests, CtrObjectTesterPairBadLen,
+        ::testing::Values(
+            bpla, bplb
+            ));
+
+TEST_P(CtrObjectTesterBadLen, BadLen)
+{
+    int *args = GetParam();
+    ASSERT_THROW(Object(args[0], args[1], args[2], args[3]), std::invalid_argument);
+}
+
+int bla[]{2, 2, -1, -1};
+int blb[]{2, 2, 0, 0};
+
+INSTANTIATE_TEST_SUITE_P(ObjectTests, CtrObjectTesterBadLen,
+        ::testing::Values(
+            bla, blb
+            ));
+
+TEST(ObjectTests, CtrObjectPairGoodLen)
+{
+    Object obj(sf::Vector2f(0, 0), sf::Vector2f(1, 1));
+    ASSERT_EQ(obj.len_get(), sf::Vector2f(1, 1));
+}
+
+TEST(ObjectTests, CtrObjectGoodLen)
+{
+    Object obj(0, 0, 1, 1);
+    ASSERT_EQ(obj.len_x_get(), 1);
+    ASSERT_EQ(obj.len_y_get(), 1);
+}
