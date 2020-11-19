@@ -4,6 +4,7 @@
 #include <SFML/Graphics/Texture.hpp>
 #include <SFML/Graphics/Sprite.hpp>
 
+#include <SFML/System/Vector2.hpp>
 #include <string>
 #include <utility>
 
@@ -14,21 +15,27 @@
 class TexturedObject : public Object, public sf::Drawable
 {
     public :
-        TexturedObject(float pos_x,
+        TexturedObject(std::string path_to_texture,
+                float pos_x,
                 float pos_y,
-                float len_x,
-                float len_y,
-                std::string path_to_texture);
+                int len_x,
+                int len_y,
+                int sprite_origin_x = 0,
+                int sprite_origin_y = 0
+                );
 
-        TexturedObject(sf::Vector2f pos,
-                sf::Vector2f len,
-                std::string path_to_texture);
+        TexturedObject(std::string path_to_texture,
+                sf::Vector2f pos,
+                sf::Vector2i len,
+                sf::Vector2i sprite_origin = {0, 0}
+                );
 
         // Getters
         /// {
         sf::Sprite sprite_get(void);
         sf::Texture texture_get(void);
         std::string path_to_texture_get(void);
+        sf::Vector2f sprite_origin_get(void);
         /// }
 
     protected :
@@ -36,4 +43,5 @@ class TexturedObject : public Object, public sf::Drawable
         sf::Texture texture_;
         sf::Sprite sprite_;
         std::string path_to_texture_;
+        sf::Vector2i sprite_origin_;
 };
