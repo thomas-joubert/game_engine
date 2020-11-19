@@ -1,3 +1,4 @@
+#include <SFML/Graphics/Rect.hpp>
 #include <SFML/System/Vector2.hpp>
 #include <gtest/gtest.h>
 
@@ -14,18 +15,18 @@
 
 TEST(TexturedObject, Ctor_unvalid_path)
 {
-    ASSERT_THROW(TexturedObject(0, 0, 0, 0, "failed"), UnvalidPath);
+    ASSERT_THROW(TexturedObject("failed", 0, 0, 1, 1), UnvalidPath);
 }
 
 TEST(TexturedObject, Ctor_valid_path_str)
 {
-    TexturedObject obj(0, 0, 0, 0, TESTFILE);
+    TexturedObject obj(TESTFILE, 0, 0, 1, 1);
     ASSERT_EQ(obj.path_to_texture_get(), TESTFILE);
 }
 
 TEST(TexturedObject, sprite_position_0)
 {
-    TexturedObject obj(0, 0, 0, 0, TESTFILE);
+    TexturedObject obj(TESTFILE, 0, 0, 1, 1);
     ASSERT_EQ(obj.path_to_texture_get(), TESTFILE);
 }
 
@@ -33,7 +34,7 @@ TEST_P(CoordinatesCheckTest, checkCoordinates)
 {
     int* args = GetParam();
 
-    TexturedObject obj(args[0], args[1], 1, 1, TESTFILE);
+    TexturedObject obj(TESTFILE, args[0], args[1], 1, 1);
 
     ASSERT_EQ(obj.pos_get(), obj.sprite_get().getPosition());
 }
@@ -52,7 +53,7 @@ TEST_P(CoordinatesCheckTestVector, checkCoordinates)
 {
     sf::Vector2f* args = GetParam();
 
-    TexturedObject obj(args[0], args[1], TESTFILE);
+    TexturedObject obj(TESTFILE, args[0], sf::Vector2i(args[1]));
 
     ASSERT_EQ(obj.pos_get(), obj.sprite_get().getPosition());
 }
@@ -66,3 +67,9 @@ INSTANTIATE_TEST_SUITE_P(TexturedObject, CoordinatesCheckTestVector,
         ::testing::Values(
             a2, b2, c2, d2
             ));
+
+TEST(TexturedObject, sprite_size_matching_object_size)
+{
+    TexturedObject obj(TESTFILE, 0, 0, 10, 10);
+    ASSERT_EQ(obj.sprite_get().getTextureRect(), sf::IntRect(0, 0, 10, 10));
+}

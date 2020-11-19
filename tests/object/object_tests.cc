@@ -32,8 +32,10 @@ INSTANTIATE_TEST_SUITE_P(ObjectTests, CtrObjectTesterBadCoordinates,
 /// {
 TEST_P(CtrObjectTesterPairBadCoordinates, NegativeParamaterPairConstructor)
 {
+    // Here, Object takes as param a Vector2f and a Vector2i, so we got to cast
+    // a Vector2f into a Vector2i
     sf::Vector2f *args = CtrObjectTesterPairBadCoordinates::GetParam();
-    ASSERT_THROW(Object(args[0], args[1]), std::invalid_argument);
+    ASSERT_THROW(Object(args[0], sf::Vector2i(args[1])), std::invalid_argument);
 }
 
 sf::Vector2f pa[]{{-1, -1}, {-1, -1}};
@@ -59,7 +61,7 @@ TEST_P(CtrObjectTesterGoodCoordinates, validIntParameter)
     ASSERT_EQ(ob.len_x_get(), args[2]);
     ASSERT_EQ(ob.len_y_get(), args[3]);
 
-    ASSERT_EQ(ob.len_get(), sf::Vector2f(args[2], args[3]));
+    ASSERT_EQ(ob.len_get(), sf::Vector2i(args[2], args[3]));
     ASSERT_EQ(ob.pos_get(), sf::Vector2f(args[0], args[1]));
 }
 
@@ -77,14 +79,14 @@ INSTANTIATE_TEST_SUITE_P(ObjectTests, CtrObjectTesterGoodCoordinates,
 TEST_P(CtrObjectTesterPairGoodCoordinates, validPairParameter)
 {
     sf::Vector2f *args = CtrObjectTesterPairGoodCoordinates::GetParam();
-    Object ob(args[0], args[1]);
+    Object ob(args[0], sf::Vector2i(args[1]));
 
     ASSERT_EQ(ob.pos_x_get(), args[0].x);
     ASSERT_EQ(ob.pos_y_get(), args[0].y);
     ASSERT_EQ(ob.len_x_get(), args[1].x);
     ASSERT_EQ(ob.len_y_get(), args[1].y);
 
-    ASSERT_EQ(ob.len_get(), args[1]);
+    ASSERT_EQ(ob.len_get(), sf::Vector2i(args[1]));
     ASSERT_EQ(ob.pos_get(), args[0]);
 }
 
@@ -101,7 +103,7 @@ INSTANTIATE_TEST_SUITE_P(ObjectTests, CtrObjectTesterPairGoodCoordinates,
 TEST_P(CtrObjectTesterPairBadLen, BadLenPair)
 {
     sf::Vector2f *args = GetParam();
-    ASSERT_THROW(Object(args[0], args[1]), std::invalid_argument);
+    ASSERT_THROW(Object(args[0], sf::Vector2i(args[1])), std::invalid_argument);
 }
 
 sf::Vector2f bpla[]{{2, 2}, {-1, -1}};
@@ -128,8 +130,8 @@ INSTANTIATE_TEST_SUITE_P(ObjectTests, CtrObjectTesterBadLen,
 
 TEST(ObjectTests, CtrObjectPairGoodLen)
 {
-    Object obj(sf::Vector2f(0, 0), sf::Vector2f(1, 1));
-    ASSERT_EQ(obj.len_get(), sf::Vector2f(1, 1));
+    Object obj(sf::Vector2f(0, 0), sf::Vector2i(1, 1));
+    ASSERT_EQ(obj.len_get(), sf::Vector2i(1, 1));
 }
 
 TEST(ObjectTests, CtrObjectGoodLen)
