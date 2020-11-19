@@ -9,10 +9,12 @@
 int main(void)
 {
     // Main window instanciation
-    sf::RenderWindow renderWindow(sf::VideoMode(1000, 1000, sf::Style::Default), "Something");
+    sf::RenderWindow renderWindow(sf::VideoMode(1000, 1000, sf::Style::Default),
+            "Something");
     renderWindow.setVerticalSyncEnabled(true);
 
-    auto obstacle = Obstacle("/home/thomas/game_engine/test1.jpg", 100, 100, 100, 100);
+    auto obstacle = level::Obstacle("/home/thomas/game_engine/test1.jpg",
+            100, 100, 100, 100);
 
     while (renderWindow.isOpen())
     {
