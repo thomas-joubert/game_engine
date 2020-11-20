@@ -35,3 +35,6 @@ check
 
 # Ressources
 *.jpg
+
+# Cmake build dir
+build
