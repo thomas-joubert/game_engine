@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>13</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>299</x>
+      <y>39</y>
+      <w>273</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>Object
+namespace::abstract
+--
+- pos_ : sf::Vector2f
+- len_ sf::Vector2i
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>598</x>
+      <y>78</y>
+      <w>273</w>
+      <h>65</h>
+    </coordinates>
+    <panel_attributes>/Drawable/
+namespace::sf
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>572</x>
+      <y>130</y>
+      <w>182</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>120.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>442</x>
+      <y>221</y>
+      <w>299</w>
+      <h>169</h>
+    </coordinates>
+    <panel_attributes>TexturedObject
+namespace::abstract
+--
+- texture_ 				: sf::Texture
+- sprite_ 				: sf::Sprite
+- path_to_texture_ 	: std::string
+- sprite_origin_ 		: sf::Vector2f
+--
+draw()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>416</x>
+      <y>130</y>
+      <w>195</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;130.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>351</x>
+      <y>455</y>
+      <w>182</w>
+      <h>52</h>
+    </coordinates>
+    <panel_attributes>Player
+namespace::player</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>663</x>
+      <y>455</y>
+      <w>182</w>
+      <h>52</h>
+    </coordinates>
+    <panel_attributes>Obstacle
+namespace::level</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>455</x>
+      <y>377</y>
+      <w>156</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>100.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>572</x>
+      <y>377</y>
+      <w>182</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;120.0;60.0</additional_attributes>
+  </element>
+</diagram>
