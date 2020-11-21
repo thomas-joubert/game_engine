@@ -38,3 +38,6 @@ check
 
 # Cmake build dir
 build
+
+# ycm config file
+.ycm_extra_conf.py
