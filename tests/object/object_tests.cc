@@ -6,8 +6,8 @@
 
 #include "object_tests.hh"
 
-#include "../../src/object.hh"
-#include "../../src/exceptions/unvalidpath.hh"
+#include "object.hh"
+#include "exceptions/unvalidpath.hh"
 
 /// {
 TEST_P(CtrObjectTesterBadCoordinates, NegativeParameterIntConstructor)

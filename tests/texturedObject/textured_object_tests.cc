@@ -8,8 +8,8 @@
 
 #include "textured_object_tests.hh"
 
-#include "../../src/textured_object.hh"
-#include "../../src/exceptions/unvalidpath.hh"
+#include "textured_object.hh"
+#include "exceptions/unvalidpath.hh"
 
 #define TESTFILE "/home/thomas/game_engine/test1.jpg"
 
