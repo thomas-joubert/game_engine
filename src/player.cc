@@ -1,6 +1,7 @@
 #include "textured_object.hh"
 #include "player.hh"
 
+#include <SFML/System/Vector2.hpp>
 #include <utility>
 
 namespace player
@@ -24,4 +25,12 @@ namespace player
             )
         : TexturedObject(path_to_texture, pos, len, sprite_origin)
     {}
+
+    void Player::impulse(sf::Vector2i intensity)
+    {
+        intensity.x = intensity.x > MAX_SPEED ? MAX_SPEED : intensity.x;
+        intensity.y = intensity.y > MAX_SPEED ? MAX_SPEED : intensity.y;
+        velocity_ += intensity;
+    }
+
 }
