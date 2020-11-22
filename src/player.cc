@@ -30,6 +30,10 @@ namespace player
     {
         intensity.x = intensity.x > MAX_SPEED ? MAX_SPEED : intensity.x;
         intensity.y = intensity.y > MAX_SPEED ? MAX_SPEED : intensity.y;
+
+        intensity.x = intensity.x < -MAX_SPEED ? -MAX_SPEED : intensity.x;
+        intensity.y = intensity.y < -MAX_SPEED ? -MAX_SPEED : intensity.y;
+
         velocity_ += intensity;
     }
 
