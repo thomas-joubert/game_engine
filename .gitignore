@@ -35,9 +35,13 @@ check
 
 # Ressources
 *.jpg
+*.png
 
 # Cmake build dir
 build
 
 # ycm config file
 .ycm_extra_conf.py
+
+# coverage output dir
+coverage_output
