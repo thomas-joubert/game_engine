@@ -13,6 +13,7 @@ namespace abstract
             Movable() = default;
             virtual void impulse(sf::Vector2f intensity) = 0;
             virtual void friction(void) = 0;
+            sf::Vector2f velocity_get(void) { return velocity_; }
 
         protected :
             sf::Vector2f velocity_ = sf::Vector2f(0, 0);
