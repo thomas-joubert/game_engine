@@ -35,6 +35,7 @@ namespace player
                   );
 
             void impulse(sf::Vector2f intensity) override;
+            void friction(void) override;
             void move(void);
     };
 }

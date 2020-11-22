@@ -10,8 +10,9 @@ namespace abstract
     class Movable
     {
         public :
-            Movable();
+            Movable() = default;
             virtual void impulse(sf::Vector2f intensity) = 0;
+            virtual void friction(void) = 0;
 
         protected :
             sf::Vector2f velocity_ = sf::Vector2f(0, 0);

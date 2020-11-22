@@ -33,10 +33,18 @@ namespace player
         velocity_ += intensity;
     }
 
+    void Player::friction(void)
+    {
+        velocity_.x /= 2;
+        velocity_.y /= 2;
+    }
+
     void Player::move(void)
     {
         sprite_.move(velocity_);
         pos_ += velocity_;
+
+        friction();
     }
 
 }
