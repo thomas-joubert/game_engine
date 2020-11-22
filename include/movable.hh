@@ -11,9 +11,9 @@ namespace abstract
     {
         public :
             Movable();
-            virtual void impulse(sf::Vector2i intensity) = 0;
+            virtual void impulse(sf::Vector2f intensity) = 0;
 
         protected :
-            sf::Vector2i velocity_ = sf::Vector2i(0, 0);
+            sf::Vector2f velocity_ = sf::Vector2f(0, 0);
     };
 }

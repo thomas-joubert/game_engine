@@ -26,11 +26,17 @@ namespace player
         : TexturedObject(path_to_texture, pos, len, sprite_origin)
     {}
 
-    void Player::impulse(sf::Vector2i intensity)
+    void Player::impulse(sf::Vector2f intensity)
     {
         intensity.x = intensity.x > MAX_SPEED ? MAX_SPEED : intensity.x;
         intensity.y = intensity.y > MAX_SPEED ? MAX_SPEED : intensity.y;
         velocity_ += intensity;
+    }
+
+    void Player::move(void)
+    {
+        sprite_.move(velocity_);
+        pos_ += velocity_;
     }
 
 }

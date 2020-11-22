@@ -34,6 +34,7 @@ namespace player
                     sf::Vector2i sprite_origin = {0, 0}
                   );
 
-            void impulse(sf::Vector2i intensity) override;
+            void impulse(sf::Vector2f intensity) override;
+            void move(void);
     };
 }
