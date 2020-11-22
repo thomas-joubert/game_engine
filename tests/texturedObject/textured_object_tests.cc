@@ -18,6 +18,11 @@ TEST(TexturedObject, Ctor_unvalid_path)
     ASSERT_THROW(abstract::TexturedObject("failed", 0, 0, 1, 1), UnvalidPath);
 }
 
+TEST(TexturedObject, Ctor_unvalid_path_vector)
+{
+    ASSERT_THROW(abstract::TexturedObject("failed", {0, 0}, {1, 1}), UnvalidPath);
+}
+
 TEST(TexturedObject, Ctor_valid_path_str)
 {
     abstract::TexturedObject obj(TESTFILE, 0, 0, 1, 1);
