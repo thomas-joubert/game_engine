@@ -4,8 +4,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>325</x>
-      <y>39</y>
+      <x>403</x>
+      <y>104</y>
       <w>273</w>
       <h>104</h>
     </coordinates>
@@ -20,8 +20,8 @@ namespace::abstract
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>624</x>
-      <y>78</y>
+      <x>702</x>
+      <y>143</y>
       <w>273</w>
       <h>65</h>
     </coordinates>
@@ -33,8 +33,8 @@ namespace::sf
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>598</x>
-      <y>130</y>
+      <x>676</x>
+      <y>195</y>
       <w>182</w>
       <h>117</h>
     </coordinates>
@@ -44,8 +44,8 @@ namespace::sf
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>468</x>
-      <y>221</y>
+      <x>546</x>
+      <y>286</y>
       <w>299</w>
       <h>169</h>
     </coordinates>
@@ -63,8 +63,8 @@ draw()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>442</x>
-      <y>130</y>
+      <x>520</x>
+      <y>195</y>
       <w>195</w>
       <h>117</h>
     </coordinates>
@@ -74,24 +74,25 @@ draw()</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>91</x>
-      <y>572</y>
+      <x>169</x>
+      <y>637</y>
       <w>481</w>
-      <h>117</h>
+      <h>156</h>
     </coordinates>
     <panel_attributes>Player
 namespace::player
 --
 --
-Movable::impulse(x_intensity : int, y_intensity : int)
+Movable::impulse(intensity : sf::Vector2i)
+
 move()</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>689</x>
-      <y>455</y>
+      <x>767</x>
+      <y>520</y>
       <w>182</w>
       <h>52</h>
     </coordinates>
@@ -102,8 +103,8 @@ namespace::level</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>312</x>
-      <y>377</y>
+      <x>390</x>
+      <y>442</y>
       <w>325</w>
       <h>221</h>
     </coordinates>
@@ -113,8 +114,8 @@ namespace::level</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>598</x>
-      <y>377</y>
+      <x>676</x>
+      <y>442</y>
       <w>208</w>
       <h>104</h>
     </coordinates>
@@ -124,25 +125,24 @@ namespace::level</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>52</x>
-      <y>221</y>
+      <x>130</x>
+      <y>286</y>
       <w>403</w>
       <h>169</h>
     </coordinates>
     <panel_attributes>/Movable/
 namespace::abstract
 --
-- x_velocity_ : int
-- y_velocity_ : int
+- velocity_ : sf::Vector2i
 --
-/impulse(x_intensity : int, y_intensity : int)/</panel_attributes>
+/impulse(intensity : sf::Vector2i)/</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>299</x>
-      <y>377</y>
+      <x>377</x>
+      <y>442</y>
       <w>52</w>
       <h>221</h>
     </coordinates>
@@ -152,8 +152,8 @@ namespace::abstract
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>91</x>
-      <y>39</y>
+      <x>169</x>
+      <y>104</y>
       <w>208</w>
       <h>91</h>
     </coordinates>
