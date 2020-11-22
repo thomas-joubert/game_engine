@@ -11,8 +11,7 @@ namespace abstract
             float pos_y,
             int len_x,
             int len_y)
-        : pos_(pos_x, pos_y),
-        len_(len_x, len_y)
+        : shape_(pos_x, pos_y, len_x, len_y)
     {
         if (pos_x < 0 || pos_y < 0 || len_x <= 0 || len_y <= 0)
             throw std::invalid_argument("An object cannot be initialize with negative values");
@@ -20,8 +19,7 @@ namespace abstract
 
     Object::Object(sf::Vector2f pos,
             sf::Vector2i len)
-        : pos_(pos),
-        len_(len)
+        : shape_(sf::Vector2i(pos), len)
     {
         if (pos.x < 0 || pos.x < 0 || len.x <= 0 || len.y <= 0)
             throw std::invalid_argument("An object cannot be initialize with negative values");
@@ -29,31 +27,36 @@ namespace abstract
 
     float Object::pos_x_get(void)
     {
-        return pos_.x;
+        return shape_.top;
     }
 
     float Object::pos_y_get(void)
     {
-        return pos_.y;
+        return shape_.left;
     }
 
     int Object::len_x_get(void)
     {
-        return len_.x;
+        return shape_.width;
     }
 
     int Object::len_y_get(void)
     {
-        return len_.y;
+        return shape_.height;
     }
 
     sf::Vector2f Object::pos_get(void)
     {
-        return pos_;
+        return sf::Vector2f(shape_.top, shape_.left);
     }
 
     sf::Vector2i Object::len_get(void)
     {
-        return len_;
+        return sf::Vector2i(shape_.width, shape_.height);
+    }
+
+    sf::IntRect Object::shape_get(void)
+    {
+        return shape_;
     }
 }

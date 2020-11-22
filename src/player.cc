@@ -46,7 +46,8 @@ namespace player
     void Player::move(void)
     {
         sprite_.move(velocity_);
-        pos_ += velocity_;
+        shape_.left += velocity_.x;
+        shape_.top += velocity_.y;
 
         friction();
     }

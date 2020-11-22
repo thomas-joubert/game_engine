@@ -24,8 +24,8 @@ namespace abstract
         if (!texture_.loadFromFile(path_to_texture))
             throw UnvalidPath(path_to_texture);
 
-        sprite_ = sf::Sprite(texture_, sf::IntRect(sprite_origin_, len_));
-        sprite_.setPosition(pos_);
+        sprite_ = sf::Sprite(texture_, shape_);
+        sprite_.setPosition(shape_.top, shape_.left);
     }
 
 
@@ -40,8 +40,8 @@ namespace abstract
         if (!texture_.loadFromFile(path_to_texture))
             throw UnvalidPath(path_to_texture);
 
-        sprite_ = sf::Sprite(texture_);
-        sprite_.setPosition(pos_);
+        sprite_ = sf::Sprite(texture_, shape_);
+        sprite_.setPosition(shape_.top, shape_.left);
     }
 
     sf::Sprite TexturedObject::sprite_get(void)

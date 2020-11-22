@@ -23,6 +23,8 @@ namespace abstract
 
             // Getters
             /// {
+            sf::IntRect shape_get(void);
+
             sf::Vector2f pos_get(void);
             sf::Vector2i len_get(void);
 
@@ -33,7 +35,6 @@ namespace abstract
             /// }
 
         protected :
-            sf::Vector2f pos_;
-            sf::Vector2i len_;
+            sf::IntRect shape_;
     };
 }
