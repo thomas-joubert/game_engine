@@ -19,14 +19,14 @@ namespace player
     {}
 
     Player::Player(std::string path_to_texture,
-            sf::Vector2f pos,
+            sf::Vector2i pos,
             sf::Vector2i len,
             sf::Vector2i sprite_origin
             )
         : TexturedObject(path_to_texture, pos, len, sprite_origin)
     {}
 
-    void Player::impulse(sf::Vector2f intensity)
+    void Player::impulse(sf::Vector2i intensity)
     {
         intensity.x = intensity.x > MAX_SPEED ? MAX_SPEED : intensity.x;
         intensity.y = intensity.y > MAX_SPEED ? MAX_SPEED : intensity.y;
@@ -45,7 +45,7 @@ namespace player
 
     void Player::move(void)
     {
-        sprite_.move(velocity_);
+        sprite_.move(sf::Vector2f(velocity_));
         shape_.left += velocity_.x;
         shape_.top += velocity_.y;
 

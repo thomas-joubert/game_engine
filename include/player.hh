@@ -31,12 +31,12 @@ namespace player
                   );
 
             Player(std::string path_to_texture,
-                    sf::Vector2f pos,
+                    sf::Vector2i pos,
                     sf::Vector2i len,
                     sf::Vector2i sprite_origin = {0, 0}
                   );
 
-            void impulse(sf::Vector2f intensity) override;
+            void impulse(sf::Vector2i intensity) override;
             void friction(void) override;
             void move(void);
     };

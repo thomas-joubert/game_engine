@@ -32,7 +32,7 @@ namespace level
         obstacles_.insert(obstacles_.end(), obstacles.begin(), obstacles.end());
     }
 
-    bool CollisionHandler::check(sf::Vector2f movement, player::Player player)
+    bool CollisionHandler::check(sf::Vector2i movement, player::Player player)
     {
         player.impulse(movement);
         player.move();

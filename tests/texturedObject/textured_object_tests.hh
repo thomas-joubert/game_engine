@@ -8,5 +8,5 @@
 class CoordinatesCheckTest : public testing::TestWithParam<int*>
 {};
 
-class CoordinatesCheckTestVector : public testing::TestWithParam<sf::Vector2f*>
+class CoordinatesCheckTestVector : public testing::TestWithParam<sf::Vector2i*>
 {};

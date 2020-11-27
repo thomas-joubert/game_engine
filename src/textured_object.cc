@@ -25,12 +25,12 @@ namespace abstract
             throw UnvalidPath(path_to_texture);
 
         sprite_ = sf::Sprite(texture_, shape_);
-        sprite_.setPosition(shape_.top, shape_.left);
+        sprite_.setPosition(shape_.left, shape_.top);
     }
 
 
     TexturedObject::TexturedObject(std::string path_to_texture,
-            sf::Vector2f pos,
+            sf::Vector2i pos,
             sf::Vector2i len,
             sf::Vector2i sprite_origin
             )
@@ -41,7 +41,7 @@ namespace abstract
             throw UnvalidPath(path_to_texture);
 
         sprite_ = sf::Sprite(texture_, shape_);
-        sprite_.setPosition(shape_.top, shape_.left);
+        sprite_.setPosition(shape_.left, shape_.top);
     }
 
     sf::Sprite TexturedObject::sprite_get(void)

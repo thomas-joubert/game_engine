@@ -22,7 +22,7 @@ namespace level
             void add_obstacle(Obstacle *obstacle);
             void add_obstacle_vector(std::vector<Obstacle*> obstacles);
 
-            bool check(sf::Vector2f movement, player::Player player);
+            bool check(sf::Vector2i movement, player::Player player);
 
         private :
             sf::Vector2u window_size_;

@@ -7,20 +7,20 @@
 
 #include "player.hh"
 
-class PlayerTestsImpulseGood : public testing::TestWithParam<sf::Vector2f>
+class PlayerTestsImpulseGood : public testing::TestWithParam<sf::Vector2i>
 {};
 
-class PlayerTestsImpulseBadUpperLimit : public testing::TestWithParam<sf::Vector2f>
+class PlayerTestsImpulseBadUpperLimit : public testing::TestWithParam<sf::Vector2i>
 {};
 
-class PlayerTestsImpulseBadLowerLimit : public testing::TestWithParam<sf::Vector2f>
+class PlayerTestsImpulseBadLowerLimit : public testing::TestWithParam<sf::Vector2i>
 {};
 
-class PlayerTestsMoveGood : public testing::TestWithParam<sf::Vector2f>
+class PlayerTestsMoveGood : public testing::TestWithParam<sf::Vector2i>
 {};
 
-class PlayerTestsMoveBadUpperLimit : public testing::TestWithParam<sf::Vector2f>
+class PlayerTestsMoveBadUpperLimit : public testing::TestWithParam<sf::Vector2i>
 {};
 
-class PlayerTestsMoveBadLowerLimit : public testing::TestWithParam<sf::Vector2f>
+class PlayerTestsMoveBadLowerLimit : public testing::TestWithParam<sf::Vector2i>
 {};

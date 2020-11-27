@@ -25,7 +25,7 @@ namespace level
                     );
 
             Obstacle(std::string path_to_texture,
-                    sf::Vector2f pos,
+                    sf::Vector2i pos,
                     sf::Vector2i len,
                     sf::Vector2i sprite_origin = {0, 0}
                     );

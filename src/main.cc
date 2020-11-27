@@ -12,10 +12,10 @@
 
 bool movement(sf::Event event, player::Player &player, level::CollisionHandler collisionHandler)
 {
-    auto up = sf::Vector2f(0, -ACCELERATION);
-    auto down = sf::Vector2f(0, ACCELERATION);
-    auto left = sf::Vector2f(-ACCELERATION, 0);
-    auto right = sf::Vector2f(ACCELERATION, 0);
+    auto up = sf::Vector2i(0, -ACCELERATION);
+    auto down = sf::Vector2i(0, ACCELERATION);
+    auto left = sf::Vector2i(-ACCELERATION, 0);
+    auto right = sf::Vector2i(ACCELERATION, 0);
 
     if (event.key.code == sf::Keyboard::Up && !collisionHandler.check(up, player))
         player.impulse(up);

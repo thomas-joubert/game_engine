@@ -17,7 +17,7 @@ namespace abstract
             throw std::invalid_argument("An object cannot be initialize with negative values");
     }
 
-    Object::Object(sf::Vector2f pos,
+    Object::Object(sf::Vector2i pos,
             sf::Vector2i len)
         : shape_(sf::Vector2i(pos), len)
     {
@@ -27,12 +27,12 @@ namespace abstract
 
     float Object::pos_x_get(void)
     {
-        return shape_.top;
+        return shape_.left;
     }
 
     float Object::pos_y_get(void)
     {
-        return shape_.left;
+        return shape_.top;
     }
 
     int Object::len_x_get(void)
@@ -45,9 +45,9 @@ namespace abstract
         return shape_.height;
     }
 
-    sf::Vector2f Object::pos_get(void)
+    sf::Vector2i Object::pos_get(void)
     {
-        return sf::Vector2f(shape_.top, shape_.left);
+        return sf::Vector2i(shape_.left, shape_.top);
     }
 
     sf::Vector2i Object::len_get(void)

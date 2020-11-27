@@ -41,7 +41,7 @@ TEST_P(CoordinatesCheckTest, checkCoordinates)
 
     abstract::TexturedObject obj(TESTFILE, args[0], args[1], 1, 1);
 
-    ASSERT_EQ(obj.pos_get(), obj.sprite_get().getPosition());
+    ASSERT_EQ(sf::Vector2f(obj.pos_get()), obj.sprite_get().getPosition());
 }
 
 int a1[]{0, 0};
@@ -56,17 +56,17 @@ INSTANTIATE_TEST_SUITE_P(TexturedObject, CoordinatesCheckTest,
 
 TEST_P(CoordinatesCheckTestVector, checkCoordinates)
 {
-    sf::Vector2f* args = GetParam();
+    sf::Vector2i* args = GetParam();
 
-    abstract::TexturedObject obj(TESTFILE, args[0], sf::Vector2i(args[1]));
+    abstract::TexturedObject obj(TESTFILE, args[0], args[1]);
 
-    ASSERT_EQ(obj.pos_get(), obj.sprite_get().getPosition());
+    ASSERT_EQ(sf::Vector2f(obj.pos_get()), obj.sprite_get().getPosition());
 }
 
-sf::Vector2f a2[]{{0, 0}, {100, 100}};
-sf::Vector2f b2[]{{10, 10}, {50, 50}};
-sf::Vector2f c2[]{{50, 190}, {14, 69}};
-sf::Vector2f d2[]{{30, 34}, {45, 9}};
+sf::Vector2i a2[]{{0, 0}, {100, 100}};
+sf::Vector2i b2[]{{10, 10}, {50, 50}};
+sf::Vector2i c2[]{{50, 190}, {14, 69}};
+sf::Vector2i d2[]{{30, 34}, {45, 9}};
 
 INSTANTIATE_TEST_SUITE_P(TexturedObject, CoordinatesCheckTestVector,
         ::testing::Values(

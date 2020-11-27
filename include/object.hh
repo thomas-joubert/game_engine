@@ -18,14 +18,14 @@ namespace abstract
                     int len_x,
                     int len_y);
 
-            Object(sf::Vector2f pos,
+            Object(sf::Vector2i pos,
                     sf::Vector2i len);
 
             // Getters
             /// {
             sf::IntRect shape_get(void);
 
-            sf::Vector2f pos_get(void);
+            sf::Vector2i pos_get(void);
             sf::Vector2i len_get(void);
 
             float pos_x_get(void);

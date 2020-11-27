@@ -27,7 +27,7 @@ namespace abstract
                     );
 
             TexturedObject(std::string path_to_texture,
-                    sf::Vector2f pos,
+                    sf::Vector2i pos,
                     sf::Vector2i len,
                     sf::Vector2i sprite_origin = {0, 0}
                     );
@@ -37,7 +37,7 @@ namespace abstract
             sf::Sprite sprite_get(void);
             sf::Texture texture_get(void);
             std::string path_to_texture_get(void);
-            sf::Vector2f sprite_origin_get(void);
+            sf::Vector2i sprite_origin_get(void);
             /// }
 
         protected :
