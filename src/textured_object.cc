@@ -35,6 +35,7 @@ namespace abstract
             sf::Vector2i sprite_origin
             )
         : Object(pos, len),
+        path_to_texture_(path_to_texture),
         sprite_origin_(sprite_origin)
     {
         if (!texture_.loadFromFile(path_to_texture))
@@ -62,5 +63,10 @@ namespace abstract
     void TexturedObject::draw(sf::RenderTarget& target, sf::RenderStates states) const
     {
         target.draw(sprite_, states);
+    }
+
+    sf::Vector2i TexturedObject::sprite_origin_get(void)
+    {
+        return sprite_origin_;
     }
 }
