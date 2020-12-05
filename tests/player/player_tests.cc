@@ -3,6 +3,20 @@
 #include <gtest/gtest.h>
 
 #include "player_tests.hh"
+#include "textured_object.hh"
+
+#define TESTFILE "/home/thomas/game_engine/test1.jpg"
+
+TEST(Player_tests_constructor, constructor_int)
+{
+    player::Player ob(TESTFILE, 1, 2, 3, 4, 100, 100);
+    ASSERT_EQ(ob.pos_x_get(), 1);
+    ASSERT_EQ(ob.pos_y_get(), 2);
+    ASSERT_EQ(ob.len_x_get(), 3);
+    ASSERT_EQ(ob.len_y_get(), 4);
+    ASSERT_EQ(ob.path_to_texture_get(), TESTFILE);
+    ASSERT_EQ(ob.sprite_origin_get(), sf::Vector2i(100, 100));
+}
 
 TEST_P(PlayerTestsImpulseGood, impulseTestsGood)
 {
@@ -17,7 +31,7 @@ INSTANTIATE_TEST_SUITE_P(PlayerTests, PlayerTestsImpulseGood,
             sf::Vector2i(2, 2),
             sf::Vector2i(100, 100),
             sf::Vector2i(1, 0),
-            sf::Vector2i(1.3, 65.7)
+            sf::Vector2i(1, 65)
             ));
 
 TEST_P(PlayerTestsImpulseBadUpperLimit, impulseTestsBadUpperLimit)
@@ -30,7 +44,7 @@ TEST_P(PlayerTestsImpulseBadUpperLimit, impulseTestsBadUpperLimit)
 INSTANTIATE_TEST_SUITE_P(PlayerTests, PlayerTestsImpulseBadUpperLimit,
         ::testing::Values (
             sf::Vector2i(101, 101),
-            sf::Vector2i(2003.14, 2002.54)
+            sf::Vector2i(2003, 2002)
             ));
 
 TEST_P(PlayerTestsImpulseBadLowerLimit, impulseTestsBadLowerLimit)
@@ -43,7 +57,7 @@ TEST_P(PlayerTestsImpulseBadLowerLimit, impulseTestsBadLowerLimit)
 INSTANTIATE_TEST_SUITE_P(PlayerTests, PlayerTestsImpulseBadLowerLimit,
         ::testing::Values (
             sf::Vector2i(-101, -101),
-            sf::Vector2i(-2003.14, -2002.54)
+            sf::Vector2i(-2003, -2002)
             ));
 
 TEST(PlayerTests, friction)
