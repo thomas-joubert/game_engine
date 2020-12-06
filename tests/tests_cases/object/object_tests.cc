@@ -11,6 +11,12 @@
 #include "object.hh"
 #include "exceptions/unvalidpath.hh"
 
+TEST(Object_test, shape_get)
+{
+    abstract::Object obj(sf::Vector2i(0, 0), sf::Vector2i(1, 1));
+    ASSERT_EQ(obj.shape_get(), sf::IntRect(sf::Vector2i(0, 0), sf::Vector2i(1, 1)));
+}
+
 /// {
 TEST_P(CtrObjectTesterBadCoordinates, NegativeParameterIntConstructor)
 {

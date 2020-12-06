@@ -13,6 +13,13 @@
 
 #define TESTFILE "/home/thomas/game_engine/test1.jpg"
 
+TEST(Textured_object, texture_get)
+{
+    // Just checks if the texture exists
+    abstract::TexturedObject obj(TESTFILE, 0, 0, 1, 1);
+    ASSERT_EQ(obj.texture_get().isSrgb(), false);
+}
+
 TEST(TexturedObject, Ctor_unvalid_path)
 {
     ASSERT_THROW(abstract::TexturedObject("failed", 0, 0, 1, 1), UnvalidPath);
