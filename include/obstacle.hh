@@ -8,7 +8,7 @@
 
 #include "textured_object.hh"
 
-namespace level 
+namespace level
 {
     /* Represents an obstacle, unmovable object that has a particular sprite */
 

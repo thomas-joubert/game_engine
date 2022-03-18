@@ -7,12 +7,12 @@
 namespace level
 {
     CollisionHandler::CollisionHandler(sf::Vector2u window_size,
-            std::vector<Obstacle*> obstacles)
+            std::vector<std::shared_ptr<Obstacle>> obstacles)
         : window_size_(window_size),
         obstacles_(obstacles)
     {}
 
-    std::vector<Obstacle*> CollisionHandler::obstacles_get(void)
+    std::vector<std::shared_ptr<Obstacle>> CollisionHandler::obstacles_get(void)
     {
         return obstacles_;
     }
@@ -22,12 +22,13 @@ namespace level
         return window_size_;
     }
 
-    void CollisionHandler::add_obstacle(Obstacle *obstacle)
+    void CollisionHandler::add_obstacle(std::shared_ptr<Obstacle> obstacle)
     {
         obstacles_.push_back(obstacle);
     }
 
-    void CollisionHandler::add_obstacle_vector(std::vector<Obstacle*> obstacles)
+    void CollisionHandler::add_obstacle_vector(
+            std::vector<std::shared_ptr<Obstacle>> obstacles)
     {
         obstacles_.insert(obstacles_.end(), obstacles.begin(), obstacles.end());
     }

@@ -1,23 +1,24 @@
 #pragma once
 
-#include <SFML/Graphics/View.hpp>
-#include <SFML/System/Vector2.hpp>
 #include <string>
 #include <utility>
+#include <memory>
 
+#include <SFML/Graphics/View.hpp>
+#include <SFML/System/Vector2.hpp>
 #include <SFML/Graphics/Drawable.hpp>
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/Graphics/Texture.hpp>
 
 #include "textured_object.hh"
 #include "movable.hh"
+#include "obstacle.hh"
 
 #define MAX_SPEED 100
 
+/* Hold the basic information about the player, its position, sprite...*/
 namespace player
 {
-    /* Hold the basic information about the player, its position, sprite...*/
-
     class Player : public abstract::TexturedObject, public abstract::Movable
     {
         public :
@@ -39,5 +40,6 @@ namespace player
             void impulse(sf::Vector2i intensity) override;
             void friction(void) override;
             void move(void);
+            void collide(std::vector<std::shared_ptr<level::Obstacle>> collided);
     };
 }

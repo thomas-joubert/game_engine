@@ -4,6 +4,7 @@
 #include <SFML/Window/Keyboard.hpp>
 #include <SFML/System/Clock.hpp>
 #include <SFML/System/Time.hpp>
+#include <memory>
 
 #include "object.hh"
 #include "obstacle.hh"
@@ -43,12 +44,15 @@ int main(void)
 
     sf::Clock clock;
 
-    auto obstacle = level::Obstacle("/home/ameno/perso/projects/game_engine/test1.jpg",
+    auto obstacle = level::Obstacle(
+            "/home/ameno/perso/projects/game_engine/test1.jpg",
             100, 100, 100, 100);
-    auto player = player::Player("/home/ameno/perso/projects/game_engine/test1.jpg",
+    auto player = player::Player(
+            "/home/ameno/perso/projects/game_engine/test1.jpg",
             0, 0, 100, 100);
+
     auto collisionHandler = level::CollisionHandler(renderWindow.getSize());
-    collisionHandler.add_obstacle(&obstacle);
+    collisionHandler.add_obstacle(std::make_shared<level::Obstacle>(obstacle));
 
     while (renderWindow.isOpen())
     {

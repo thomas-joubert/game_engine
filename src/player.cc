@@ -51,4 +51,9 @@ namespace player
 
         friction();
     }
+
+    void collide(std::vector<std::shared_ptr<level::Obstacle>>)
+    {
+        return;
+    }
 }

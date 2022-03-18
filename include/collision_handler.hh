@@ -1,7 +1,8 @@
 #pragma once
 
-#include <SFML/System/Vector2.hpp>
 #include <vector>
+
+#include <SFML/System/Vector2.hpp>
 
 #include "obstacle.hh"
 #include "player.hh"
@@ -12,20 +13,22 @@ namespace level
     {
         public :
             CollisionHandler(sf::Vector2u window_size,
-                    std::vector<Obstacle*> obstacles = {});
+                    std::vector<std::shared_ptr<Obstacle>> obstacles = {});
 
             // Getters
             /// {
-            std::vector<Obstacle*> obstacles_get(void);
+            std::vector<std::shared_ptr<Obstacle>> obstacles_get(void);
             sf::Vector2u window_size_get(void);
             /// }
-            void add_obstacle(Obstacle *obstacle);
-            void add_obstacle_vector(std::vector<Obstacle*> obstacles);
+
+            void add_obstacle(std::shared_ptr<Obstacle> obstacle);
+            void add_obstacle_vector(
+                    std::vector<std::shared_ptr<Obstacle>> obstacles);
 
             bool check(sf::Vector2i movement, player::Player player);
 
         private :
             sf::Vector2u window_size_;
-            std::vector<Obstacle*> obstacles_;
+            std::vector<std::shared_ptr<Obstacle>> obstacles_;
     };
 }
