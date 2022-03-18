@@ -1,7 +1,7 @@
 #include <iostream>
 #include <memory>
 
-namespace log
+namespace logging
 {
     class InfoLogger
     {

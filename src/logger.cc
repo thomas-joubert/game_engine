@@ -1,7 +1,8 @@
 #include "logger.hh"
+
 #define BASE_LOG "Log : "
 
-namespace log
+namespace logging
 {
     InfoLogger *InfoLogger::logger_;
 

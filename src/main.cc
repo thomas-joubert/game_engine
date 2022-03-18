@@ -38,9 +38,9 @@ int main(void)
             "Something");
     renderWindow.setVerticalSyncEnabled(true);
 
-    auto obstacle = level::Obstacle("/home/thomas/game_engine/test1.jpg",
+    auto obstacle = level::Obstacle("/home/ameno/perso/projects/game_engine/test1.jpg",
             100, 100, 100, 100);
-    auto player = player::Player("/home/thomas/game_engine/test2.png",
+    auto player = player::Player("/home/ameno/perso/projects/game_engine/test1.jpg",
             0, 0, 100, 100);
     auto collisionHandler = level::CollisionHandler(renderWindow.getSize());
     collisionHandler.add_obstacle(&obstacle);
