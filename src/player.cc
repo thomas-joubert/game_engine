@@ -1,8 +1,8 @@
-#include "textured_object.hh"
-#include "player.hh"
-
 #include <SFML/System/Vector2.hpp>
 #include <utility>
+
+#include "textured_object.hh"
+#include "player.hh"
 
 namespace player
 {

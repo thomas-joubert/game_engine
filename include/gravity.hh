@@ -8,6 +8,6 @@ namespace modules
     class Gravity : public EngineModule
     {
         public :
-            int apply(abstract::Movable movable) override;
+            int apply(abstract::Movable *movable) override;
     };
 }
