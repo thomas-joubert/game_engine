@@ -39,6 +39,6 @@ namespace player
 
             void impulse(sf::Vector2i intensity) override;
             void move(void);
-            void collide(std::vector<std::shared_ptr<level::Obstacle>> collided);
+            void apply_modules(void);
     };
 }

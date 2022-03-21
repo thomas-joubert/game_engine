@@ -46,8 +46,9 @@ namespace player
         velocity_ = {0, 0};
     }
 
-    void collide(std::vector<std::shared_ptr<level::Obstacle>>)
+    void Player::apply_modules(void)
     {
-        return;
+        for (auto i : linked_modules_)
+            i->apply(this);
     }
 }
