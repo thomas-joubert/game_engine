@@ -34,13 +34,7 @@ namespace player
         intensity.x = intensity.x < -MAX_SPEED ? -MAX_SPEED : intensity.x;
         intensity.y = intensity.y < -MAX_SPEED ? -MAX_SPEED : intensity.y;
 
-        velocity_ += intensity;
-    }
-
-    void Player::friction(void)
-    {
-        velocity_.x /= 2;
-        velocity_.y /= 2;
+        velocity_ = intensity;
     }
 
     void Player::move(void)
@@ -49,7 +43,7 @@ namespace player
         shape_.left += velocity_.x;
         shape_.top += velocity_.y;
 
-        friction();
+        velocity_ = {0, 0};
     }
 
     void collide(std::vector<std::shared_ptr<level::Obstacle>>)
