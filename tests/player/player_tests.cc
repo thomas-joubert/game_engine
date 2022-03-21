@@ -60,24 +60,6 @@ INSTANTIATE_TEST_SUITE_P(PlayerTests, PlayerTestsImpulseBadLowerLimit,
             sf::Vector2i(-2003, -2002)
             ));
 
-TEST(PlayerTests, friction)
-{
-    player::Player player("/home/thomas/game_engine/test1.jpg", {0, 0}, {1, 1});
-    player.impulse({100, 100});
-    player.friction();
-
-    ASSERT_EQ(player.velocity_get(), sf::Vector2i(50, 50));
-}
-
-TEST(PlayerTests, frictionNegative)
-{
-    player::Player player("/home/thomas/game_engine/test1.jpg", {0, 0}, {1, 1});
-    player.impulse({-100, -100});
-    player.friction();
-
-    ASSERT_EQ(player.velocity_get(), sf::Vector2i(-50, -50));
-}
-
 TEST_P(PlayerTestsMoveGood, MoveTestsGood)
 {
     player::Player player("/home/thomas/game_engine/test1.jpg", {0, 0}, {1, 1});
