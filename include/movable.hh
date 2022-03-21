@@ -22,7 +22,7 @@ namespace abstract
             virtual void impulse(sf::Vector2i intensity) = 0;
             virtual void apply_modules(void) = 0;
 
-            void module_add(std::shared_ptr<modules::EngineModule> added_module)
+            void add_module(std::shared_ptr<modules::EngineModule> added_module)
             {
                 linked_modules_.push_back(added_module);
             };
